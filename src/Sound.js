@@ -32,6 +32,12 @@ class Sound extends Component {
     this.audio.volume = volume;
   }
 
+  componentWillUnmount() {
+    this.audio.pause();
+
+    this.audio = null;
+  }
+
   render() {
     return (
       <Form.Group className="sound" style={{ backgroundColor: `hsl(${this.props.backgroundHue}, 58%, 75%)` }}>
