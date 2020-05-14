@@ -9,9 +9,9 @@ class Sounds extends Component {
   render() {
     return (
       <Form>
-        <Sound backgroundHue={randomInt(360)} />
-        <Sound backgroundHue={randomInt(360)} />
-        <Sound backgroundHue={randomInt(360)} />
+        <Sound id={1} backgroundHue={randomInt(360)} />
+        <Sound id={2} backgroundHue={randomInt(360)} />
+        <Sound id={3} backgroundHue={randomInt(360)} />
       </Form>
     );
   }
