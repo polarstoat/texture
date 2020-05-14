@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 
+import Form from 'react-bootstrap/Form';
+
 import Slider from './Slider.js';
+
+import './Sound.css';
 
 class Sound extends Component {
   render() {
     return (
-      <div>
+      <Form.Group className="sound">
         <Slider />
-      </div>
+      </Form.Group>
     );
   }
 }
