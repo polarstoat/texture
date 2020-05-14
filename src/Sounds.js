@@ -8,9 +8,9 @@ class Sounds extends Component {
   render() {
     return (
       <Form>
-        <Sound />
-        <Sound />
-        <Sound />
+        <Sound backgroundColor="red" />
+        <Sound backgroundColor="green" />
+        <Sound backgroundColor="blue" />
       </Form>
     );
   }

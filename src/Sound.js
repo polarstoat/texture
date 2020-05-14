@@ -9,7 +9,7 @@ import './Sound.css';
 class Sound extends Component {
   render() {
     return (
-      <Form.Group className="sound">
+      <Form.Group className="sound" style={{ backgroundColor: this.props.backgroundColor }}>
         <Slider />
       </Form.Group>
     );
