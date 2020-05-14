@@ -9,7 +9,6 @@ class App extends Component {
       <React.Fragment>
         <Header />
         <Sounds />
-        <div>Test</div>
       </React.Fragment>
     );
   }
