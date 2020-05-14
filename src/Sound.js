@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 
+import Slider from './Slider.js';
+
 class Sound extends Component {
   render() {
     return (
-      <div>A sound</div>
+      <div>
+        <Slider />
+      </div>
     );
   }
 }
