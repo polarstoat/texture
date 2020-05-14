@@ -17,8 +17,19 @@ class Sound extends Component {
     this.handleVolumeChange = this.handleVolumeChange.bind(this);
   }
 
+  componentDidMount() {
+    this.audio = new Audio(`./audio/${this.props.id}.mp3`);
+
+    this.audio.loop = true;
+    this.audio.volume = 0;
+
+    this.audio.play();
+  }
+
   handleVolumeChange(volume) {
     this.setState({ volume });
+
+    this.audio.volume = volume;
   }
 
   render() {
