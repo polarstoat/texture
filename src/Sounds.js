@@ -26,7 +26,7 @@ while (soundIds.length < SOUNDS_TO_DISPLAY) {
 class Sounds extends Component {
   render() {
     const sounds = soundIds.map(id => (
-      <Sound id={id} backgroundHue={randomInt(360)} />
+      <Sound key={id} id={id} backgroundHue={randomInt(360)} />
     ));
 
     return (
