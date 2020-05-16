@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Form from 'react-bootstrap/Form';
+import { Howl } from 'howler';
 
 import VolumeSlider from './VolumeSlider.js';
 
@@ -18,24 +19,22 @@ class Sound extends Component {
   }
 
   componentDidMount() {
-    this.audio = new Audio(`./audio/${this.props.id}.mp3`);
-
-    this.audio.loop = true;
-    this.audio.volume = 0;
-
-    this.audio.play();
+    this.audio = new Howl({
+      src: [`./audio/${this.props.id}.mp3`],
+      loop: true,
+      volume: 0,
+      autoplay: true,
+    });
   }
 
   handleVolumeChange(volume) {
     this.setState({ volume });
 
-    this.audio.volume = volume;
+    this.audio.volume(volume);
   }
 
   componentWillUnmount() {
-    this.audio.pause();
-
-    this.audio = null;
+    this.audio.unload();
   }
 
   render() {
