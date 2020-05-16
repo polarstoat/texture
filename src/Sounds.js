@@ -19,7 +19,7 @@ const SOUNDS_TO_DISPLAY = 6;
 
 const soundIds = [];
 while (soundIds.length < SOUNDS_TO_DISPLAY) {
-  const ran = randomInt(NUMBER_OF_SOUNDS);
+  const ran = randomInt(1, NUMBER_OF_SOUNDS);
   if (soundIds.indexOf(ran) === -1) soundIds.push(ran);
 }
 
