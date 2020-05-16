@@ -10,7 +10,7 @@ import Sound from './Sound.js';
  * @todo Generate this integer dynamically based on content of /public/audio/ folder
  * @type {Number}
  */
-const NUMBER_OF_SOUNDS = 10;
+const NUMBER_OF_SOUNDS = 9;
 /**
  * How many different sound sliders to display at once
  * @type {Number}
