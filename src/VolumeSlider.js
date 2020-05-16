@@ -15,7 +15,7 @@ class Slider extends Component {
 
   render() {
     return (
-      <FormControl value={this.props.value} onChange={this.handleChange} type="range" min={0} max={1} step={0.01} custom />
+      <FormControl value={this.props.value} onChange={this.handleChange} type="range" min={0} max={1} step="any" custom />
     );
   }
 }
