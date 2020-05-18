@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import Form from 'react-bootstrap/Form';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 import randomInt from 'random-int';
 
 import Sound from './Sound.js';
@@ -26,13 +27,15 @@ while (soundIds.length < SOUNDS_TO_DISPLAY) {
 class Sounds extends Component {
   render() {
     const sounds = soundIds.map(id => (
-      <Sound key={id} id={id} backgroundHue={randomInt(360)} />
+      <Col key={id} className="col-12 col-lg-6">
+        <Sound id={id} backgroundHue={randomInt(360)} />
+      </Col>
     ));
 
     return (
-      <Form>
+      <Row className="no-gutters">
         {sounds}
-      </Form>
+      </Row>
     );
   }
 }
