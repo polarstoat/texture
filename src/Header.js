@@ -6,7 +6,7 @@ class Header extends Component {
   render() {
     return (
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand>Title</Navbar.Brand>
+        <Navbar.Brand>Texture</Navbar.Brand>
       </Navbar>
     );
   }
