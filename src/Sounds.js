@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import randomInt from 'random-int';
 
+import getDistinctYetRandomHues from './getDistinctYetRandomHues.js';
 import Sound from './Sound.js';
 
 /**
@@ -24,11 +25,13 @@ while (soundIds.length < SOUNDS_TO_DISPLAY) {
   if (soundIds.indexOf(ran) === -1) soundIds.push(ran);
 }
 
+const backgroundHues = getDistinctYetRandomHues(SOUNDS_TO_DISPLAY);
+
 class Sounds extends Component {
   render() {
     const sounds = soundIds.map(id => (
       <Col key={id} className="col-12">
-        <Sound id={id} backgroundHue={randomInt(360)} />
+        <Sound id={id} backgroundHue={backgroundHues.shift()} />
       </Col>
     ));
 
