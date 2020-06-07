@@ -1,4 +1,13 @@
 .sound {
 	padding: 2.5rem 1rem;
 	margin: 0;
+	position: relative;
+}
+
+.filename {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0.8;
+	padding: .25rem .5rem;
 }
