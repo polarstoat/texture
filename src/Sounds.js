@@ -7,31 +7,28 @@ import randomInt from 'random-int';
 import getDistinctYetRandomHues from './getDistinctYetRandomHues.js';
 import Sound from './Sound.js';
 
-/**
- * Total number of sound files available to draw from
- * @todo Generate this integer dynamically based on content of /public/audio/ folder
- * @type {Number}
- */
-const NUMBER_OF_SOUNDS = 9;
+import allSoundFilenames from './soundFilenames.json';
+
 /**
  * How many different sound sliders to display at once
  * @type {Number}
  */
 const SOUNDS_TO_DISPLAY = 6;
 
-const soundIds = [];
-while (soundIds.length < SOUNDS_TO_DISPLAY) {
-  const ran = randomInt(1, NUMBER_OF_SOUNDS);
-  if (soundIds.indexOf(ran) === -1) soundIds.push(ran);
+const chosenSoundFilenames = [];
+while (chosenSoundFilenames.length < SOUNDS_TO_DISPLAY) {
+  const randomSoundFilename = allSoundFilenames[randomInt(0, allSoundFilenames.length - 1)];
+
+  if (chosenSoundFilenames.indexOf(randomSoundFilename) === -1) chosenSoundFilenames.push(randomSoundFilename);
 }
 
 const backgroundHues = getDistinctYetRandomHues(SOUNDS_TO_DISPLAY);
 
 class Sounds extends Component {
   render() {
-    const sounds = soundIds.map(id => (
-      <Col key={id} className="col-12">
-        <Sound id={id} backgroundHue={backgroundHues.shift()} />
+    const sounds = chosenSoundFilenames.map((filename) => (
+      <Col key={filename} className="col-12">
+        <Sound filename={filename} backgroundHue={backgroundHues.shift()} />
       </Col>
     ));
 

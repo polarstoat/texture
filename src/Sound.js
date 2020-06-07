@@ -20,7 +20,7 @@ class Sound extends Component {
 
   componentDidMount() {
     this.audio = new Howl({
-      src: [`./audio/${this.props.id}.mp3`],
+      src: [`./audio/${this.props.filename}`],
       loop: true,
       volume: 0,
       autoplay: true,
