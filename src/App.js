@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Navbar from 'react-bootstrap/Navbar';
+
 import randomInt from 'random-int';
 
 import getDistinctYetRandomHues from './getDistinctYetRandomHues.js';
@@ -52,6 +54,9 @@ class App extends Component {
       <React.Fragment>
         <Header onRandomise={this.randomiseSounds} />
         <Sounds soundFilenames={this.state.chosenSoundFilenames} backgroundHues={this.state.backgroundHues} />
+        <Navbar>
+          <Navbar.Text><small>&copy; Spike Padley and Graeme Walker 2020</small></Navbar.Text>
+        </Navbar>
       </React.Fragment>
     );
   }
