@@ -55,7 +55,7 @@ class App extends Component {
         <Header onRandomise={this.randomiseSounds} />
         <Sounds soundFilenames={this.state.chosenSoundFilenames} backgroundHues={this.state.backgroundHues} />
         <Navbar>
-          <Navbar.Text><small>&copy; Spike Padley and Graeme Walker 2020</small></Navbar.Text>
+          <Navbar.Text><small>Texture &copy; Spike Padley and Graeme Walker 2020</small></Navbar.Text>
         </Navbar>
       </React.Fragment>
     );
