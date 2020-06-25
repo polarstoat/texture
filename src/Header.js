@@ -5,22 +5,34 @@ import Button from 'react-bootstrap/Button';
 
 import { BsShuffle } from 'react-icons/bs';
 
+import MuteButton from './MuteButton.js';
+
+import './Header.css';
+
 class Header extends Component {
   constructor(props) {
     super(props);
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleRandomise = this.handleRandomise.bind(this);
+    this.handleMuteToggle = this.handleMuteToggle.bind(this);
   }
 
-  handleClick() {
+  handleRandomise() {
     this.props.onRandomise();
+  }
+
+  handleMuteToggle() {
+    this.props.onMuteToggle();
   }
 
   render() {
     return (
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand>Texture</Navbar.Brand>
-        <Button variant="secondary" className="ml-auto" onClick={this.handleClick}><BsShuffle size="1.5em" /></Button>
+        <div className="buttons">
+          <MuteButton onToggle={this.handleMuteToggle} muted={this.props.muted} />
+          <Button variant="secondary" onClick={this.handleRandomise}><BsShuffle size="1.5em" /></Button>
+        </div>
       </Navbar>
     );
   }

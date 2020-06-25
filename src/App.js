@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import randomInt from 'random-int';
 
+import { Howler } from 'howler';
+
 import getDistinctYetRandomHues from './getDistinctYetRandomHues.js';
 
 import Header from './Header.js';
@@ -24,9 +26,11 @@ class App extends Component {
     this.state = {
       chosenSoundFilenames: [],
       backgroundHues: [],
+      muted: false,
     };
 
     this.randomiseSounds = this.randomiseSounds.bind(this);
+    this.muteToggle = this.muteToggle.bind(this);
   }
 
   componentDidMount() {
@@ -49,11 +53,21 @@ class App extends Component {
     });
   }
 
+  muteToggle() {
+    const muted = !this.state.muted;
+
+    this.setState({
+      muted
+    });
+
+    Howler.mute(muted);
+  }
+
   render() {
     return (
       <React.Fragment>
-        <Header onRandomise={this.randomiseSounds} />
-        <Sounds soundFilenames={this.state.chosenSoundFilenames} backgroundHues={this.state.backgroundHues} />
+        <Header onRandomise={this.randomiseSounds} onMuteToggle={this.muteToggle} muted={this.state.muted} />
+        <Sounds soundFilenames={this.state.chosenSoundFilenames} backgroundHues={this.state.backgroundHues} muted={this.state.muted} />
         <BodyText />
         <Footer />
       </React.Fragment>

@@ -39,7 +39,7 @@ class Sound extends Component {
 
   render() {
     return (
-      <Form.Group className="sound" style={{ backgroundColor: `hsl(${this.props.backgroundHue}, 58%, 75%)` }}>
+      <Form.Group className="sound" style={{ backgroundColor: `hsl(${this.props.backgroundHue}, ${this.props.muted ? 10 : 58}%, 75%)` }}>
         <VolumeSlider value={this.state.volume} onChange={this.handleVolumeChange} />
         {process.env.NODE_ENV !== 'production' && process.env.REACT_APP_FILENAMES === 'true' && <small className="filename text-white bg-dark text-monospace">{this.props.filename}</small>}
       </Form.Group>
