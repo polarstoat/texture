@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 
-import { FaRedoAlt } from 'react-icons/fa';
+import { BsShuffle } from 'react-icons/bs';
 
 class Header extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class Header extends Component {
     return (
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand>Texture</Navbar.Brand>
-        <Button variant="secondary" className="ml-auto" onClick={this.handleClick}><FaRedoAlt /></Button>
+        <Button variant="secondary" className="ml-auto" onClick={this.handleClick}><BsShuffle size="1.5em" /></Button>
       </Navbar>
     );
   }
