@@ -6,6 +6,7 @@ import getDistinctYetRandomHues from './getDistinctYetRandomHues.js';
 
 import Header from './Header.js';
 import Sounds from './Sounds.js';
+import BodyText from './BodyText.js';
 import Footer from './Footer.js';
 
 import allSoundFilenames from './soundFilenames.json';
@@ -53,6 +54,7 @@ class App extends Component {
       <React.Fragment>
         <Header onRandomise={this.randomiseSounds} />
         <Sounds soundFilenames={this.state.chosenSoundFilenames} backgroundHues={this.state.backgroundHues} />
+        <BodyText />
         <Footer />
       </React.Fragment>
     );
