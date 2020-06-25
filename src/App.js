@@ -42,7 +42,10 @@ class App extends Component {
     while (chosenSoundFilenames.length < SOUNDS_TO_DISPLAY) {
       const randomSoundFilename = allSoundFilenames[randomInt(0, allSoundFilenames.length - 1)];
 
-      if (chosenSoundFilenames.indexOf(randomSoundFilename) === -1) chosenSoundFilenames.push(randomSoundFilename);
+      if (
+        chosenSoundFilenames.indexOf(randomSoundFilename) === -1
+        && this.state.chosenSoundFilenames.indexOf(randomSoundFilename) === -1
+      ) chosenSoundFilenames.push(randomSoundFilename);
     }
 
     const backgroundHues = getDistinctYetRandomHues(SOUNDS_TO_DISPLAY);
