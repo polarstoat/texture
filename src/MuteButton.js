@@ -15,7 +15,7 @@ class MuteButton extends Component {
 
   render() {
     return (
-      <Button variant="secondary" className={this.props.muted ? 'muted' : 'unmuted'} onClick={this.toggle}>{this.props.muted ? <BsVolumeUpFill size="1.5em" /> : <BsVolumeMuteFill size="1.5em" />}</Button>
+      <Button variant={this.props.muted ? 'light' : 'secondary'} className={this.props.muted ? 'muted' : 'unmuted'} onClick={this.toggle}>{this.props.muted ? <BsVolumeUpFill size="1.5em" /> : <BsVolumeMuteFill size="1.5em" />}</Button>
     );
   }
 }
