@@ -11,7 +11,7 @@ import Sounds from './Sounds.js';
 import BodyText from './BodyText.js';
 import Footer from './Footer.js';
 
-import allSoundFilenames from './soundFilenames.json';
+import soundFilenames from './soundFilenames.json';
 
 /**
  * How many different sound sliders to display at once
@@ -24,8 +24,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      chosenSoundFilenames: [],
-      backgroundHues: [],
+      sounds: [],
       muted: false,
     };
 
@@ -38,22 +37,22 @@ class App extends Component {
   }
 
   randomiseSounds() {
-    const chosenSoundFilenames = [];
-    while (chosenSoundFilenames.length < SOUNDS_TO_DISPLAY) {
-      const randomSoundFilename = allSoundFilenames[randomInt(0, allSoundFilenames.length - 1)];
+    const filenames = [];
+
+    while (filenames.length < SOUNDS_TO_DISPLAY) {
+      const randomFilename = soundFilenames[randomInt(0, soundFilenames.length - 1)];
 
       if (
-        chosenSoundFilenames.indexOf(randomSoundFilename) === -1
-        && this.state.chosenSoundFilenames.indexOf(randomSoundFilename) === -1
-      ) chosenSoundFilenames.push(randomSoundFilename);
+        filenames.indexOf(randomFilename) === -1 &&
+        this.state.sounds.findIndex((sound) => sound.filename === randomFilename) === -1
+      ) filenames.push(randomFilename);
     }
 
-    const backgroundHues = getUniqueHues(SOUNDS_TO_DISPLAY);
+    const hues = getUniqueHues(SOUNDS_TO_DISPLAY);
 
-    this.setState({
-      chosenSoundFilenames,
-      backgroundHues,
-    });
+    const sounds = filenames.map((filename, index) => { return { filename, hue: hues[index] } });
+
+    this.setState({ sounds });
   }
 
   muteToggle() {
@@ -70,7 +69,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <Header onRandomise={this.randomiseSounds} onMuteToggle={this.muteToggle} muted={this.state.muted} />
-        <Sounds soundFilenames={this.state.chosenSoundFilenames} backgroundHues={this.state.backgroundHues} muted={this.state.muted} />
+        <Sounds sounds={this.state.sounds} muted={this.state.muted} />
         <BodyText />
         <Footer />
       </React.Fragment>

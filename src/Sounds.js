@@ -7,11 +7,9 @@ import Sound from './Sound.js';
 
 class Sounds extends Component {
   render() {
-    const backgroundHues = this.props.backgroundHues.slice(0);
-
-    const sounds = this.props.soundFilenames.map(filename => (
-      <Col key={filename} className="col-12">
-        <Sound filename={filename} backgroundHue={backgroundHues.shift()} muted={this.props.muted} />
+    const sounds = this.props.sounds.map((sound) => (
+      <Col key={sound.filename} className="col-12">
+        <Sound filename={sound.filename} hue={sound.hue} muted={this.props.muted} />
       </Col>
     ));
 
