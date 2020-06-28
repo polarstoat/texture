@@ -22,7 +22,6 @@ const MIN_ADJACENT_HUE_DISTANCE = 60;
  *
  * @param  {Number} hue  The hue to check
  * @param  {Number[]} hues The array of existing hues to check against
- *
  * @return {Boolean}      Whether the given hue is too close to any in the array of existing hues
  */
 function hueIsTooClose(hue, hues) {
@@ -32,6 +31,7 @@ function hueIsTooClose(hue, hues) {
 
 /**
  * Checks if the given hue is too close to the previous (adjacently displayed) hue
+ *
  * @param  {Number} hue         The hue to check
  * @param  {Number} previousHue The previous hue to check against
  * @return {Boolean}             Whether the given hue is too close to the previous hue
@@ -41,19 +41,22 @@ function previousHueIsTooClose(hue, previousHue) {
   return false;
 }
 
-function getDistinctYetRandomHues(numberToGet) {
+function getUniqueHues(numberToGet) {
   const hues = [];
 
   while (hues.length < numberToGet) {
-    const hue = randomInt(360);
+    const hue = randomInt(359);
 
     if (
-      !hueIsTooClose(hue, hues) &&
-      !previousHueIsTooClose(hue, hues[hues.length - 1])
+      hues.length === 0 ||
+      (!hueIsTooClose(hue, hues) &&
+      !previousHueIsTooClose(hue, hues[hues.length - 1]))
     ) hues.push(hue);
   }
 
   return hues;
 }
 
-export default getDistinctYetRandomHues;
+export {
+  getUniqueHues,
+};

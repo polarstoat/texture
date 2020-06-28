@@ -4,7 +4,7 @@ import randomInt from 'random-int';
 
 import { Howler } from 'howler';
 
-import getDistinctYetRandomHues from './getDistinctYetRandomHues.js';
+import { getUniqueHues } from './utility.js';
 
 import Header from './Header.js';
 import Sounds from './Sounds.js';
@@ -48,7 +48,7 @@ class App extends Component {
       ) chosenSoundFilenames.push(randomSoundFilename);
     }
 
-    const backgroundHues = getDistinctYetRandomHues(SOUNDS_TO_DISPLAY);
+    const backgroundHues = getUniqueHues(SOUNDS_TO_DISPLAY);
 
     this.setState({
       chosenSoundFilenames,
