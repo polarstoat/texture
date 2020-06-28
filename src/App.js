@@ -28,6 +28,7 @@ class App extends Component {
 
     this.randomiseSounds = this.randomiseSounds.bind(this);
     this.muteToggle = this.muteToggle.bind(this);
+    this.handleVolumeChange = this.handleVolumeChange.bind(this);
   }
 
   componentDidMount() {
@@ -48,7 +49,7 @@ class App extends Component {
 
     const hues = getUniqueHues(SOUNDS_TO_DISPLAY);
 
-    const sounds = filenames.map((filename, index) => { return { filename, hue: hues[index] } });
+    const sounds = filenames.map((filename, index) => { return { filename, hue: hues[index], volume: 0 } });
 
     this.setState({ sounds });
   }
@@ -63,11 +64,19 @@ class App extends Component {
     Howler.mute(muted);
   }
 
+  handleVolumeChange(sound, volume) {
+    const sounds = this.state.sounds;
+
+    sounds[sounds.indexOf(sound)].volume = volume;
+
+    this.setState(sounds);
+  }
+
   render() {
     return (
       <React.Fragment>
         <Header onRandomise={this.randomiseSounds} onMuteToggle={this.muteToggle} muted={this.state.muted} />
-        <Sounds sounds={this.state.sounds} muted={this.state.muted} />
+        <Sounds sounds={this.state.sounds} muted={this.state.muted} onVolumeChange={this.handleVolumeChange} />
         <BodyText />
         <Footer />
       </React.Fragment>

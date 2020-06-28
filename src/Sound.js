@@ -10,16 +10,12 @@ class Sound extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      volume: 0,
-    };
-
     this.handleVolumeChange = this.handleVolumeChange.bind(this);
   }
 
   componentDidMount() {
     this.audio = new Howl({
-      src: [`./audio/${this.props.filename}`],
+      src: [`./audio/${this.props.sound.filename}`],
       loop: true,
       volume: 0,
       autoplay: true,
@@ -27,7 +23,7 @@ class Sound extends Component {
   }
 
   handleVolumeChange(volume) {
-    this.setState({ volume });
+    this.props.onVolumeChange(this.props.sound, volume);
 
     this.audio.volume(volume);
   }
@@ -38,9 +34,9 @@ class Sound extends Component {
 
   render() {
     return (
-      <Form.Group className="sound" style={{ backgroundColor: `hsl(${this.props.hue}, ${this.props.muted ? 10 : 58}%, 75%)` }}>
-        <VolumeSlider value={this.state.volume} onChange={this.handleVolumeChange} />
-        {process.env.NODE_ENV !== 'production' && process.env.REACT_APP_FILENAMES === 'true' && <small className="filename text-white bg-dark text-monospace">{this.props.filename}</small>}
+      <Form.Group className="sound" style={{ backgroundColor: `hsl(${this.props.sound.hue}, ${this.props.muted ? 10 : 58}%, 75%)` }}>
+        <VolumeSlider value={this.props.sound.volume} onChange={this.handleVolumeChange} />
+        {process.env.NODE_ENV !== 'production' && process.env.REACT_APP_FILENAMES === 'true' && <small className="filename text-white bg-dark text-monospace">{this.props.sound.filename}</small>}
       </Form.Group>
     );
   }
