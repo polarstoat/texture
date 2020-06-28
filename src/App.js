@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-
 import randomInt from 'random-int';
-
 import { Howler } from 'howler';
 
 import { getUniqueHues } from './utility.js';

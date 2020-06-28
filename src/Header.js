@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
-
 import { BsShuffle } from 'react-icons/bs';
 
 import MuteButton from './MuteButton.js';

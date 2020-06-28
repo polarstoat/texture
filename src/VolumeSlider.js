@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import FormControl from 'react-bootstrap/FormControl';
 
 class Slider extends Component {
