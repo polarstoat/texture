@@ -8,6 +8,10 @@ import MuteButton from './MuteButton.js';
 import './Header.css';
 
 class Header extends Component {
+  componentDidMount() {
+    document.addEventListener('touchend', function() {}, false);
+  }
+
   render() {
     return (
       <Navbar bg="dark" variant="dark">
