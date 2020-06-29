@@ -6,7 +6,7 @@ $custom-range-track-bg: #fff;
 @import "~bootstrap/scss/mixins";
 
 // Mixin override for fixing sticky iOS :hover
-@import "bootstrap.mixins.custom.scss";
+@import "mixins.scss";
 
 // Optional
 @import "~bootstrap/scss/root";
