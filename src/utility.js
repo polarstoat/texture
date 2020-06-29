@@ -17,6 +17,8 @@ const MIN_HUE_DISTANCE = 30;
  */
 const MIN_ADJACENT_HUE_DISTANCE = 60;
 
+const MIN_ADJACENT_LIGHTNESS_DISTANCE = 5;
+
 /**
  * Checks if the given hue is too close to any in the array of existing hues
  *
@@ -57,6 +59,27 @@ function getUniqueHues(numberToGet) {
   return hues;
 }
 
+function previousLightnessIsTooClose(lightness, previousLightness) {
+  if (Math.abs(lightness - previousLightness) < MIN_ADJACENT_LIGHTNESS_DISTANCE) return true;
+  return false;
+}
+
+function getUniqueLightnesses(numberToGet) {
+  const lightnesses = [];
+
+  while (lightnesses.length < numberToGet) {
+    const lightness = randomInt(65, 85);
+
+    if (
+      lightnesses.length === 0 ||
+      !previousLightnessIsTooClose(lightness, lightnesses[lightnesses.length - 1])
+    ) lightnesses.push(lightness);
+  }
+
+  return lightnesses;
+}
+
 export {
   getUniqueHues,
+  getUniqueLightnesses,
 };

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import randomInt from 'random-int';
 import { Howler } from 'howler';
 
-import { getUniqueHues } from './utility.js';
+import { getUniqueHues, getUniqueLightnesses } from './utility.js';
 
 import Header from './Header.js';
 import Sounds from './Sounds.js';
@@ -48,8 +48,9 @@ class App extends Component {
     }
 
     const hues = getUniqueHues(SOUNDS_TO_DISPLAY);
+    const lightnesses = getUniqueLightnesses(SOUNDS_TO_DISPLAY);
 
-    const sounds = filenames.map((filename, index) => { return { filename, hue: hues[index], volume: 0 } });
+    const sounds = filenames.map((filename, index) => { return { filename, hue: hues[index], lightness: lightnesses[index], volume: 0 } });
 
     this.setState({ sounds });
   }
