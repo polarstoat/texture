@@ -17,7 +17,7 @@ class Sound extends Component {
     this.audio = new Howl({
       src: [`./audio/${this.props.sound.filename}`],
       loop: true,
-      volume: 0,
+      volume: this.props.sound.volume,
       autoplay: true,
     });
   }

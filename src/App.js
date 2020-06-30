@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import randomInt from 'random-int';
 import { Howler } from 'howler';
+import ls from 'local-storage';
 
 import { getUniqueHues, getUniqueLightnesses } from './utility.js';
 
@@ -22,7 +23,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      sounds: [],
+      sounds: ls.get('sounds') || [],
       muted: false,
     };
 
@@ -32,7 +33,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.randomiseSounds();
+    if (this.state.sounds.length === 0) this.randomiseSounds();
+    else if (this.state.sounds.some((sound) => sound.volume > 0)) {
+      this.setState({ muted: true });
+      Howler.mute(true);
+    }
   }
 
   randomiseSounds() {
@@ -53,6 +58,7 @@ class App extends Component {
     const sounds = filenames.map((filename, index) => { return { filename, hue: hues[index], lightness: lightnesses[index], volume: 0 } });
 
     this.setState({ sounds });
+    ls.set('sounds', sounds);
   }
 
   muteToggle() {
@@ -71,6 +77,7 @@ class App extends Component {
     sounds[sounds.indexOf(sound)].volume = volume;
 
     this.setState(sounds);
+    ls.set('sounds', sounds);
   }
 
   render() {
