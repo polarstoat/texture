@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-
+import React, { PureComponent } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 
-class Footer extends Component {
+class Footer extends PureComponent {
   render() {
     return (
       <Navbar>

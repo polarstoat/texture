@@ -27,7 +27,7 @@ const MIN_ADJACENT_LIGHTNESS_DISTANCE = 5;
  * @return {Boolean}      Whether the given hue is too close to any in the array of existing hues
  */
 function hueIsTooClose(hue, hues) {
-  if (hues.some(value => angles.distance(value, hue) < MIN_HUE_DISTANCE)) return true;
+  if (hues.some((value) => angles.distance(value, hue) < MIN_HUE_DISTANCE)) return true;
   return false;
 }
 
@@ -50,9 +50,9 @@ function getUniqueHues(numberToGet) {
     const hue = randomInt(359);
 
     if (
-      hues.length === 0 ||
-      (!hueIsTooClose(hue, hues) &&
-      !previousHueIsTooClose(hue, hues[hues.length - 1]))
+      hues.length === 0
+      || (!hueIsTooClose(hue, hues)
+      && !previousHueIsTooClose(hue, hues[hues.length - 1]))
     ) hues.push(hue);
   }
 
@@ -71,8 +71,8 @@ function getUniqueLightnesses(numberToGet) {
     const lightness = randomInt(65, 85);
 
     if (
-      lightnesses.length === 0 ||
-      !previousLightnessIsTooClose(lightness, lightnesses[lightnesses.length - 1])
+      lightnesses.length === 0
+      || !previousLightnessIsTooClose(lightness, lightnesses[lightnesses.length - 1])
     ) lightnesses.push(lightness);
   }
 

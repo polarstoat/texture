@@ -3,12 +3,12 @@ import randomInt from 'random-int';
 import { Howler } from 'howler';
 import ls from 'local-storage';
 
-import { getUniqueHues, getUniqueLightnesses } from './utility.js';
+import { getUniqueHues, getUniqueLightnesses } from './utility';
 
-import Header from './Header.js';
-import Sounds from './Sounds.js';
-import BodyText from './BodyText.js';
-import Footer from './Footer.js';
+import Header from './Header';
+import Sounds from './Sounds';
+import BodyText from './BodyText';
+import Footer from './Footer';
 
 import soundFilenames from './soundFilenames.json';
 
@@ -33,46 +33,55 @@ class App extends Component {
   }
 
   componentDidMount() {
-    if (this.state.sounds.length === 0) this.randomiseSounds();
-    else if (this.state.sounds.some((sound) => sound.volume > 0)) {
+    const { sounds } = this.state;
+
+    if (sounds.length === 0) this.randomiseSounds();
+    else if (sounds.some((sound) => sound.volume > 0)) {
       this.setState({ muted: true });
       Howler.mute(true);
     }
   }
 
   randomiseSounds() {
+    let { sounds } = this.state;
+
     const filenames = [];
 
     while (filenames.length < SOUNDS_TO_DISPLAY) {
       const randomFilename = soundFilenames[randomInt(0, soundFilenames.length - 1)];
 
       if (
-        filenames.indexOf(randomFilename) === -1 &&
-        this.state.sounds.findIndex((sound) => sound.filename === randomFilename) === -1
+        filenames.indexOf(randomFilename) === -1
+        && sounds.findIndex((sound) => sound.filename === randomFilename) === -1
       ) filenames.push(randomFilename);
     }
 
     const hues = getUniqueHues(SOUNDS_TO_DISPLAY);
     const lightnesses = getUniqueLightnesses(SOUNDS_TO_DISPLAY);
 
-    const sounds = filenames.map((filename, index) => { return { filename, hue: hues[index], lightness: lightnesses[index], volume: 0 } });
+    sounds = filenames.map((filename, index) => ({
+      filename,
+      hue: hues[index],
+      lightness: lightnesses[index],
+      volume: 0,
+    }));
 
     this.setState({ sounds });
     ls.set('sounds', sounds);
   }
 
   muteToggle() {
-    const muted = !this.state.muted;
+    this.setState((prevState) => {
+      const muted = !prevState.muted;
 
-    this.setState({
-      muted
+      Howler.mute(muted);
+
+      return { muted };
     });
-
-    Howler.mute(muted);
   }
 
   handleVolumeChange(sound, volume) {
-    const sounds = this.state.sounds;
+    const { sounds } = this.state;
 
     sounds[sounds.indexOf(sound)].volume = volume;
 
@@ -81,13 +90,14 @@ class App extends Component {
   }
 
   render() {
+    const { muted, sounds } = this.state;
     return (
-      <React.Fragment>
-        <Header onRandomise={this.randomiseSounds} onMuteToggle={this.muteToggle} muted={this.state.muted} />
-        <Sounds sounds={this.state.sounds} muted={this.state.muted} onVolumeChange={this.handleVolumeChange} />
+      <>
+        <Header onRandomise={this.randomiseSounds} onMuteToggle={this.muteToggle} muted={muted} />
+        <Sounds sounds={sounds} muted={muted} onVolumeChange={this.handleVolumeChange} />
         <BodyText />
         <Footer />
-      </React.Fragment>
+      </>
     );
   }
 }

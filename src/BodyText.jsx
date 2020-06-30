@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Container from 'react-bootstrap/Container';
 
-class BodyText extends Component {
+/* eslint-disable max-len */
+
+class BodyText extends PureComponent {
   render() {
     return (
       <Container fluid className="pt-4 px-4">
