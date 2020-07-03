@@ -21,7 +21,7 @@ class Header extends Component {
         <Navbar.Brand>Texture</Navbar.Brand>
         <div className="buttons">
           <MuteButton onToggle={onMuteToggle} muted={muted} />
-          <Button variant="secondary" onClick={onRandomise}><BsShuffle size="1.5em" /></Button>
+          <Button variant="primary" onClick={onRandomise}><BsShuffle size="1.5em" /></Button>
         </div>
       </Navbar>
     );
