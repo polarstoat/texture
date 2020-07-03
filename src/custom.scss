@@ -1,17 +1,22 @@
+// Override Bootstrap variables
 $custom-range-track-bg: #fff;
 $btn-focus-box-shadow: none !important;
 $custom-range-thumb-focus-box-shadow: none !important;
 
-// Required
+// REQUIRED
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
 // Mixin override for fixing sticky iOS :hover
-@import "mixins.scss";
+@mixin hover() {
+  @media (hover: hover) {
+    &:hover { @content; }
+  }
+}
 
-// Optional
-@import "~bootstrap/scss/root";
+// OPTIONAL
+// @import "~bootstrap/scss/root";
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/type";
 // @import "~bootstrap/scss/images";
@@ -25,7 +30,7 @@ $custom-range-thumb-focus-box-shadow: none !important;
 @import "~bootstrap/scss/button-group";
 @import "~bootstrap/scss/input-group";
 @import "~bootstrap/scss/custom-forms";
-@import "~bootstrap/scss/nav";
+// @import "~bootstrap/scss/nav";
 @import "~bootstrap/scss/navbar";
 // @import "~bootstrap/scss/card";
 // @import "~bootstrap/scss/breadcrumb";
