@@ -3,12 +3,12 @@
   "description": "Add texture to your music",
   "icons": [
     {
-      "src": "android-chrome-512x512.png?v=JyBQ5WGm2p",
+      "src": "/android-chrome-192x192.png?v=Kmz4RR2lWE",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "android-chrome-512x512.png?v=JyBQ5WGm2p",
+      "src": "/android-chrome-512x512.png?v=Kmz4RR2lWE",
       "type": "image/png",
       "sizes": "512x512"
     }
