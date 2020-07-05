@@ -68,6 +68,7 @@ $donation-orange: #f4b04e;
   &::-moz-range-thumb {
     background-clip: padding-box;
     border: 0.4rem solid transparent;
+    box-sizing: border-box;
     transform: scale(4);
   }
   &::-ms-thumb {
