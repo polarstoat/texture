@@ -50,3 +50,10 @@ $custom-range-thumb-focus-box-shadow: none !important;
 // @import "~bootstrap/scss/spinners";
 @import "~bootstrap/scss/utilities";
 // @import "~bootstrap/scss/print";
+
+// Custom donate button colours
+$donation-orange: #f4b04e;
+.btn-donate {
+  @include button-outline-variant($donation-orange);
+  font-style: italic;
+}
