@@ -57,3 +57,22 @@ $donation-orange: #f4b04e;
   @include button-outline-variant($donation-orange);
   font-style: italic;
 }
+
+// Increase hitbox size for slider thumb by 4x
+.custom-range {
+  &::-webkit-slider-thumb {
+    background-clip: padding-box;
+    border: 0.4rem solid transparent;
+    transform: scale(4);
+  }
+  &::-moz-range-thumb {
+    background-clip: padding-box;
+    border: 0.4rem solid transparent;
+    transform: scale(4);
+  }
+  &::-ms-thumb {
+    background-clip: padding-box;
+    border: 0.4rem solid transparent;
+    transform: scale(4);
+  }
+}
