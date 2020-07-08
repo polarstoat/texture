@@ -4,10 +4,12 @@ import { Howler } from 'howler';
 import ls from 'local-storage';
 
 import { getUniqueHues, getUniqueLightnesses } from './utility';
+import { encodeShareURL, decodeShareURL } from './share';
 
 import Header from './Header';
 import Sounds from './Sounds';
 import BodyText from './BodyText';
+import ShareURL from './ShareURL';
 import Footer from './Footer';
 
 import soundFilenames from './soundFilenames.json';
@@ -47,7 +49,15 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    const sounds = ls.get('sounds') || getRandomSounds([]);
+    let sounds = [];
+
+    if (window.location.hash) {
+      const hash = window.location.hash.substr(1);
+
+      sounds = decodeShareURL(hash);
+    } else if (ls.get('sounds')) sounds = ls.get('sounds');
+    else sounds = getRandomSounds([]);
+
     const muted = sounds.some((sound) => sound.volume > 0);
 
     Howler.mute(muted);
@@ -60,6 +70,15 @@ class App extends Component {
     this.handleShuffleClick = this.handleShuffleClick.bind(this);
     this.handleMuteToggle = this.handleMuteToggle.bind(this);
     this.handleVolumeChange = this.handleVolumeChange.bind(this);
+    this.handleHashChange = this.handleHashChange.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener('hashchange', this.handleHashChange, false);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('hashchange', this.handleHashChange, false);
   }
 
   handleShuffleClick() {
@@ -96,6 +115,12 @@ class App extends Component {
     });
   }
 
+  handleHashChange() {
+    const hash = window.location.hash.substr(1);
+
+    this.setState({ sounds: decodeShareURL(hash) });
+  }
+
   render() {
     const { muted, sounds } = this.state;
 
@@ -107,6 +132,7 @@ class App extends Component {
           muted={muted}
         />
         <Sounds onVolumeChange={this.handleVolumeChange} sounds={sounds} muted={muted} />
+        <ShareURL code={encodeShareURL(sounds)} />
         <BodyText />
         <Footer />
       </>

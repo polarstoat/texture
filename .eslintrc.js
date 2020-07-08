@@ -8,5 +8,6 @@ module.exports = {
     'src/serviceWorker.js',
   ],
   rules: {
+    'no-bitwise': 'off',
   },
 };
