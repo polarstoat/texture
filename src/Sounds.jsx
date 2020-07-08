@@ -23,7 +23,7 @@ class Sounds extends Component {
 
     const columns = sounds.map((sound) => (
       <Col key={sound.filename} className="col-12">
-        <Sound sound={sound} muted={muted} onVolumeChange={this.handleVolumeChange} />
+        <Sound onVolumeChange={this.handleVolumeChange} sound={sound} muted={muted} />
       </Col>
     ));
 

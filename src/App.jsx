@@ -57,12 +57,12 @@ class App extends Component {
       muted,
     };
 
-    this.handleRandomiseSounds = this.handleRandomiseSounds.bind(this);
-    this.muteToggle = this.muteToggle.bind(this);
+    this.handleShuffleClick = this.handleShuffleClick.bind(this);
+    this.handleMuteToggle = this.handleMuteToggle.bind(this);
     this.handleVolumeChange = this.handleVolumeChange.bind(this);
   }
 
-  handleRandomiseSounds() {
+  handleShuffleClick() {
     this.setState((prevState) => {
       const previousSounds = prevState.sounds;
 
@@ -74,7 +74,7 @@ class App extends Component {
     });
   }
 
-  muteToggle() {
+  handleMuteToggle() {
     this.setState((prevState) => {
       const muted = !prevState.muted;
 
@@ -101,8 +101,12 @@ class App extends Component {
 
     return (
       <>
-        <Header onRandomise={this.handleRandomiseSounds} onMuteToggle={this.muteToggle} muted={muted} />
-        <Sounds sounds={sounds} muted={muted} onVolumeChange={this.handleVolumeChange} />
+        <Header
+          onShuffleClick={this.handleShuffleClick}
+          onMuteToggle={this.handleMuteToggle}
+          muted={muted}
+        />
+        <Sounds onVolumeChange={this.handleVolumeChange} sounds={sounds} muted={muted} />
         <BodyText />
         <Footer />
       </>

@@ -14,14 +14,14 @@ class Header extends Component {
   }
 
   render() {
-    const { muted, onMuteToggle, onRandomise } = this.props;
+    const { muted, onMuteToggle, onShuffleClick } = this.props;
 
     return (
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand>Texture</Navbar.Brand>
         <div className="buttons">
           <MuteButton onToggle={onMuteToggle} muted={muted} />
-          <Button variant="primary" onClick={onRandomise}><BsShuffle size="1.5em" /></Button>
+          <Button variant="primary" onClick={onShuffleClick}><BsShuffle size="1.5em" /></Button>
         </div>
       </Navbar>
     );
@@ -31,7 +31,7 @@ class Header extends Component {
 Header.propTypes = {
   muted: PropTypes.bool.isRequired,
   onMuteToggle: PropTypes.func.isRequired,
-  onRandomise: PropTypes.func.isRequired,
+  onShuffleClick: PropTypes.func.isRequired,
 };
 
 export default Header;
