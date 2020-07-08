@@ -18,56 +18,60 @@ import soundFilenames from './soundFilenames.json';
  */
 const SOUNDS_TO_DISPLAY = 6;
 
+function getRandomSounds(currentSounds) {
+  const filenames = [];
+
+  while (filenames.length < SOUNDS_TO_DISPLAY) {
+    const randomFilename = soundFilenames[randomInt(0, soundFilenames.length - 1)];
+
+    if (
+      filenames.indexOf(randomFilename) === -1
+      && currentSounds.findIndex((sound) => sound.filename === randomFilename) === -1
+    ) filenames.push(randomFilename);
+  }
+
+  const hues = getUniqueHues(SOUNDS_TO_DISPLAY);
+  const lightnesses = getUniqueLightnesses(SOUNDS_TO_DISPLAY);
+
+  const sounds = filenames.map((filename, index) => ({
+    filename,
+    hue: hues[index],
+    lightness: lightnesses[index],
+    volume: 0,
+  }));
+
+  return sounds;
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
 
+    const sounds = ls.get('sounds') || getRandomSounds([]);
+    const muted = sounds.some((sound) => sound.volume > 0);
+
+    Howler.mute(muted);
+
     this.state = {
-      sounds: ls.get('sounds') || [],
-      muted: false,
+      sounds,
+      muted,
     };
 
-    this.randomiseSounds = this.randomiseSounds.bind(this);
+    this.handleRandomiseSounds = this.handleRandomiseSounds.bind(this);
     this.muteToggle = this.muteToggle.bind(this);
     this.handleVolumeChange = this.handleVolumeChange.bind(this);
   }
 
-  componentDidMount() {
-    const { sounds } = this.state;
+  handleRandomiseSounds() {
+    this.setState((prevState) => {
+      const previousSounds = prevState.sounds;
 
-    if (sounds.length === 0) this.randomiseSounds();
-    else if (sounds.some((sound) => sound.volume > 0)) {
-      this.setState({ muted: true });
-      Howler.mute(true);
-    }
-  }
+      const sounds = getRandomSounds(previousSounds);
 
-  randomiseSounds() {
-    let { sounds } = this.state;
+      ls.set('sounds', sounds);
 
-    const filenames = [];
-
-    while (filenames.length < SOUNDS_TO_DISPLAY) {
-      const randomFilename = soundFilenames[randomInt(0, soundFilenames.length - 1)];
-
-      if (
-        filenames.indexOf(randomFilename) === -1
-        && sounds.findIndex((sound) => sound.filename === randomFilename) === -1
-      ) filenames.push(randomFilename);
-    }
-
-    const hues = getUniqueHues(SOUNDS_TO_DISPLAY);
-    const lightnesses = getUniqueLightnesses(SOUNDS_TO_DISPLAY);
-
-    sounds = filenames.map((filename, index) => ({
-      filename,
-      hue: hues[index],
-      lightness: lightnesses[index],
-      volume: 0,
-    }));
-
-    this.setState({ sounds });
-    ls.set('sounds', sounds);
+      return { sounds };
+    });
   }
 
   muteToggle() {
@@ -94,9 +98,10 @@ class App extends Component {
 
   render() {
     const { muted, sounds } = this.state;
+
     return (
       <>
-        <Header onRandomise={this.randomiseSounds} onMuteToggle={this.muteToggle} muted={muted} />
+        <Header onRandomise={this.handleRandomiseSounds} onMuteToggle={this.muteToggle} muted={muted} />
         <Sounds sounds={sounds} muted={muted} onVolumeChange={this.handleVolumeChange} />
         <BodyText />
         <Footer />
