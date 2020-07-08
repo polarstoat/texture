@@ -81,12 +81,15 @@ class App extends Component {
   }
 
   handleVolumeChange(sound, volume) {
-    const { sounds } = this.state;
+    this.setState((prevState) => {
+      const { sounds } = prevState;
 
-    sounds[sounds.indexOf(sound)].volume = volume;
+      sounds[sounds.indexOf(sound)].volume = volume;
 
-    this.setState(sounds);
-    ls.set('sounds', sounds);
+      ls.set('sounds', sounds);
+
+      return { sounds };
+    });
   }
 
   render() {
