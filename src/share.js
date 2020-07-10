@@ -74,7 +74,7 @@ function readSoundData(buffer, index) {
 
   soundData.push(view.getUint16(0));
   soundData.push(view.getUint16(2));
-  soundData.push(view.getUint16(3));
+  soundData.push(view.getUint16(4));
 
   return soundData;
 }
