@@ -11,7 +11,7 @@ class BodyText extends PureComponent {
       <Container fluid className="pt-3 px-4">
         <Row>
           <Col md={6}>
-            <p>Each time you shuffle, Texture randomly chooses 6 audio loops and colours, and provides volume sliders for mixing. Once you have created a Texture you like, you can copy and its shareable URL, which will save the audio loops, the colours, and the volume levels for future use.</p>
+            <p>Texture randomly chooses 6 audio loops and colours, with volume sliders for mixing and a shuffle button to swap in all new loops and colours. Once you have created a Texture you like, you can copy its shareable URL, to save the audio loops, colours, and volume levels for future use.</p>
             <p>While there is no prescribed use, Texture was originally proposed to provide ambience, crunchiness and atmosphere for synth music and sonic inspiration for soundtracking. Its colourful and simple interface encourages playfulness over perfection. With an ever growing pool of sounds, Texture can breathe life into an overly clean mix in all kinds of unexpected ways. It is both intense, absorbing and capable of a huge range of presences, characteristics and readings.</p>
             <h6>Like Texture? Buy us an apple</h6>
             <a className="btn btn-donate mb-3" role="button" href="https://paypal.me/graemejwalker" target="_blank" rel="noreferrer noopener">Donate via PayPal</a>
@@ -29,8 +29,8 @@ class BodyText extends PureComponent {
             <ul>
               <li>Theatre &amp; dance work</li>
               <li>Sound Design</li>
-              <li>ASMR, meditation, yoga</li>
-              <li>Cut out annoying sounds</li>
+              <li>ASMR, meditation, yoga &amp; study</li>
+              <li>Cut out annoying noise</li>
               <li>Help with sleeping and concentration</li>
               <li>Soundscape</li>
               <li>Improvisation</li>
