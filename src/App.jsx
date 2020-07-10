@@ -124,6 +124,8 @@ class App extends Component {
   render() {
     const { muted, sounds } = this.state;
 
+    const shareableUrl = `${window.location.origin}${window.location.pathname}#${encodeShareURL(sounds)}`;
+
     return (
       <>
         <Header
@@ -132,7 +134,7 @@ class App extends Component {
           muted={muted}
         />
         <Sounds onVolumeChange={this.handleVolumeChange} sounds={sounds} muted={muted} />
-        <ShareURL code={encodeShareURL(sounds)} />
+        <ShareURL shareableUrl={shareableUrl} />
         <BodyText />
         <Footer />
       </>

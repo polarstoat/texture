@@ -13,7 +13,7 @@ class ShareURL extends PureComponent {
   }
 
   render() {
-    const { code } = this.props;
+    const { shareableUrl } = this.props;
 
     return (
       <Container fluid>
@@ -21,7 +21,7 @@ class ShareURL extends PureComponent {
           <InputGroup.Prepend>
             <InputGroup.Text id="shareable-url-label">Shareable URL</InputGroup.Text>
           </InputGroup.Prepend>
-          <Form.Control type="text" id="shareable-url" aria-label="Shareable URL for this Texture" aria-describedby="shareable-url-label" readOnly value={`${window.location.origin}${window.location.pathname}#${code}`} onClick={this.handleClick} />
+          <Form.Control type="text" id="shareable-url" aria-label="Shareable URL for this Texture" aria-describedby="shareable-url-label" readOnly value={shareableUrl} onClick={this.handleClick} />
         </InputGroup>
       </Container>
     );
@@ -29,7 +29,7 @@ class ShareURL extends PureComponent {
 }
 
 ShareURL.propTypes = {
-  code: PropTypes.string.isRequired,
+  shareableUrl: PropTypes.string.isRequired,
 };
 
 export default ShareURL;
