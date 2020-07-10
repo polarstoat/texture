@@ -13,6 +13,7 @@ class BodyText extends PureComponent {
           <Col md={6}>
             <p>Texture randomly chooses 6 audio loops and colours, with volume sliders for mixing and a shuffle button to swap in all new loops and colours. Once you have created a Texture you like, you can copy its shareable URL, to save the audio loops, colours, and volume levels for future use.</p>
             <p>While there is no prescribed use, Texture was originally proposed to provide ambience, crunchiness and atmosphere for synth music and sonic inspiration for soundtracking. Its colourful and simple interface encourages playfulness over perfection. With an ever growing pool of sounds, Texture can breathe life into an overly clean mix in all kinds of unexpected ways. It is both intense, absorbing and capable of a huge range of presences, characteristics and readings.</p>
+            <p>There are <strong>over 1 trillion</strong> unique combinations of audio loops in Texture; this means you probably have a combination that has never been heard by anyone before and probably will never be heard again — unless of course you share it.</p>
             <h6>Like Texture? Buy us an apple</h6>
             <a className="btn btn-donate mb-3" role="button" href="https://paypal.me/graemejwalker" target="_blank" rel="noreferrer noopener">Donate via PayPal</a>
             <h6>Contact</h6>
