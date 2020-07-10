@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Col';
 class BodyText extends PureComponent {
   render() {
     return (
-      <Container fluid className="pt-4 px-4">
+      <Container fluid className="pt-3 px-4">
         <Row>
           <Col md={6}>
             <p>Each time you shuffle, Texture randomly chooses 6 audio loops and colours, and provides volume sliders for mixing. Once you have created a Texture you like, you can copy and its shareable URL, which will save the audio loops, the colours, and the volume levels for future use.</p>
