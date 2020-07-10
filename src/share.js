@@ -5,6 +5,12 @@ import soundFilenames from './soundFilenames.json';
 const VOLUME_PRECISION = 1000;
 const HUE_BITS = 9;
 
+function validateInt(int, min, max) {
+  if (!Number.isInteger(int) || int < min || int > max) return false;
+
+  return true;
+}
+
 /**
  * Combines a hue (integer of 0-360, stored in 9 bits) and lightness (integer of 0-100, stored in
  *   7 bits) into one 16 bit integer
@@ -22,6 +28,9 @@ const HUE_BITS = 9;
  * @return {number}           The combined hue and lightness
  */
 function combineHueAndLightness(hue, lightness) {
+  if (!validateInt(hue)) throw new RangeError(`Invalid hue: ${hue}`);
+  if (!validateInt(lightness)) throw new RangeError(`Invalid lightness: ${lightness}`);
+
   return (lightness << HUE_BITS) + hue;
 }
 
