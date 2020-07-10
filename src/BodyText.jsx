@@ -15,6 +15,13 @@ class BodyText extends PureComponent {
             <p>While there is no prescribed use, Texture was originally proposed to provide ambience, crunchiness and atmosphere for synth music and sonic inspiration for soundtracking. Its colourful and simple interface encourages playfulness over perfection. With an ever growing pool of sounds, Texture can breathe life into an overly clean mix in all kinds of unexpected ways. It is both intense, absorbing and capable of a huge range of presences, characteristics and readings.</p>
             <h6>Like Texture? Buy us an apple</h6>
             <a className="btn btn-donate mb-3" role="button" href="https://paypal.me/graemejwalker" target="_blank" rel="noreferrer noopener">Donate via PayPal</a>
+            <h6>Contact</h6>
+            <p>
+              For feedback, comments and questions: <a href="mailto:hi@addtexture.com">hi@addtexture.com</a>
+              <br />
+              For commercial licencing: <a href="mailto:licensing@addtexture.com">licensing@addtexture.com</a>
+            </p>
+            <p>Share your Texture URLS and descriptions on Twitter: <a href="https://twitter.com/add_texture">@add_texture</a> #addtexture</p>
           </Col>
           <Col md={6}>
             <p>Whenever the sounds you’re working with need a bit of roughing up, or needs a refresh or a different perspective, give Texture a try.</p>
