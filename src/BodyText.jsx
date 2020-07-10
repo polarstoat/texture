@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 /* eslint-disable max-len */
+/* eslint-disable react/jsx-one-expression-per-line */
 
 class BodyText extends PureComponent {
   render() {
@@ -16,13 +17,7 @@ class BodyText extends PureComponent {
             <p>There are <strong>over 1 trillion</strong> unique combinations of audio loops in Texture; this means you probably have a combination that has never been heard by anyone before and probably will never be heard again — unless of course you share it.</p>
             <h6>Like Texture? Buy us an apple</h6>
             <a className="btn btn-donate mb-3" role="button" href="https://paypal.me/graemejwalker" target="_blank" rel="noreferrer noopener">Donate via PayPal</a>
-            <h6>Contact</h6>
-            <p>
-              For feedback, comments and questions: <a href="mailto:hi@addtexture.com">hi@addtexture.com</a>
-              <br />
-              For commercial licencing: <a href="mailto:licensing@addtexture.com">licensing@addtexture.com</a>
-            </p>
-            <p>Share your Texture URLS and descriptions on Twitter: <a href="https://twitter.com/add_texture">@add_texture</a> #addtexture</p>
+            <p>We&apos;re happy to recieve feedback, comments and questions at <a href="mailto:hi@addtexture.com">hi@addtexture.com</a>. You can also reach us on Twitter <a href="https://twitter.com/add_texture">@add_texture</a>, and share your Texture URLs and descriptions with <a href="https://twitter.com/search?q=%23addtexture">#addtexture</a>.</p>
           </Col>
           <Col md={6}>
             <p>Whenever the sounds you’re working with need a bit of roughing up, or needs a refresh or a different perspective, give Texture a try.</p>
@@ -40,14 +35,8 @@ class BodyText extends PureComponent {
             </ul>
             <p>We’ve already recorded hundreds of sounds just for this project, comprising field and studio recordings and software generated audio. They were mostly recorded at 96 kHz/48-bit and downsampled to 24-bit.</p>
             <h6>Licensing</h6>
-            <p>
-              <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img className="float-right pl-2" alt="Creative Commons Licence" src="/images/by-nc.svg" /></a>
-              Texture is free to use for non-commercial projects and live performances under a
-              {' '}
-              <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>
-              .
-            </p>
-            <p>If you want to use Texture for commercial projects or recordings, you’ll need a Commercial Use Licence which costs £25. This gives you unlimited royalty free single user rights to record the output of addtexture.com for all your commercial projects.</p>
+            <p><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img className="float-right pl-2" alt="Creative Commons Licence" src="/images/by-nc.svg" /></a>Texture is free to use for non-commercial projects and live performances under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+            <p>If you want to use Texture for commercial projects or recordings, you’ll need a Commercial Use Licence which costs £25. This gives you unlimited royalty free single user rights to record the output of addtexture.com for your commercial projects. Contact us at <a href="mailto:licensing@addtexture.com">licensing@addtexture.com</a> for more information.</p>
           </Col>
         </Row>
       </Container>
