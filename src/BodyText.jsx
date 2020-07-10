@@ -33,9 +33,10 @@ class BodyText extends PureComponent {
             <p>We’ve already recorded hundreds of sounds just for this project, comprising field and studio recordings and software generated audio. They were mostly recorded at 96/48 and downsampled to 24 bit.</p>
             <h6>Licensing</h6>
             <p>
+              <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img className="float-right pl-2" alt="Creative Commons Licence" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a>
               Texture is free to use for non-commercial projects and live performances under a
               {' '}
-              <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>
+              <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>
               .
             </p>
             <p>If you want to use Texture for commercial projects or recordings, you’ll need a Commercial Use Licence which costs £25. This gives you unlimited royalty free single user rights to record the output of addtexture.com for all your commercial projects.</p>
