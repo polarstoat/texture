@@ -9,7 +9,7 @@
     "eslint-config-airbnb": "^18.2.0",
     "gh-pages": "^3.1.0",
     "howler": "^2.2.0",
-    "js-base64": "^2.6.3",
+    "js-base64": "^3.2.4",
     "local-storage": "^2.0.0",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
