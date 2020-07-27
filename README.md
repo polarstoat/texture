@@ -25,7 +25,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ### `npm run deploy`
 
 Runs `npm run build` and then deploys to GitHub Pages.<br />
-Pushes the contents of `build` to `origin/gh-pages` remote and branch.
+Pushes the contents of the `build` folder to `origin/gh-pages` remote and branch.
 
 See the [Create React App documentation on deploying to GitHub Pages](https://create-react-app.dev/docs/deployment/#github-pages) and the [`gh-pages` npm package](https://www.npmjs.com/package/gh-pages) for more information.
 
