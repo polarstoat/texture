@@ -2,6 +2,8 @@ import { Base64 } from 'js-base64';
 
 import soundFilenames from './soundFilenames.json';
 
+/* eslint-disable no-bitwise */
+
 const VOLUME_PRECISION = 1000;
 const HUE_BITS = 9;
 
