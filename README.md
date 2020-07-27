@@ -1,3 +1,9 @@
+# Texture
+
+Add sonic texture to... anything. Improvise, mix and play with over one trillion possible sound combinations.
+
+**[Open application →](https://addtexture.com)**
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
