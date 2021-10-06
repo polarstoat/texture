@@ -5,7 +5,7 @@ import { Howl } from 'howler';
 
 import VolumeSlider from './VolumeSlider';
 
-import './Sound.css';
+import './Sound.scss';
 
 class Sound extends Component {
   constructor(props) {
