@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import { BsShuffle } from 'react-icons/bs';
 
@@ -18,11 +19,13 @@ class Header extends Component {
 
     return (
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand>Texture</Navbar.Brand>
-        <div className="buttons">
-          <MuteButton onToggle={onMuteToggle} muted={muted} />
-          <Button variant="primary" onClick={onShuffleClick}><BsShuffle size="1.5em" /></Button>
-        </div>
+        <Container fluid>
+          <Navbar.Brand>Texture</Navbar.Brand>
+          <div className="buttons">
+            <MuteButton onToggle={onMuteToggle} muted={muted} />
+            <Button variant="primary" onClick={onShuffleClick}><BsShuffle size="1.5em" /></Button>
+          </div>
+        </Container>
       </Navbar>
     );
   }

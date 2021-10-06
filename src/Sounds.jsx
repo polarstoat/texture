@@ -28,7 +28,7 @@ class Sounds extends Component {
     ));
 
     return (
-      <Row className="no-gutters">
+      <Row className="g-0">
         {columns}
       </Row>
     );

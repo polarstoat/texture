@@ -18,9 +18,7 @@ class ShareURL extends PureComponent {
     return (
       <Container fluid>
         <InputGroup className="mt-3">
-          <InputGroup.Prepend>
-            <InputGroup.Text id="shareable-url-label">Shareable URL</InputGroup.Text>
-          </InputGroup.Prepend>
+          <InputGroup.Text id="shareable-url-label">Shareable URL</InputGroup.Text>
           <Form.Control type="text" id="shareable-url" aria-label="Shareable URL for this Texture" aria-describedby="shareable-url-label" readOnly value={shareableUrl} onClick={this.handleClick} />
         </InputGroup>
       </Container>

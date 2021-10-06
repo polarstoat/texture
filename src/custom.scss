@@ -1,12 +1,14 @@
 // Override Bootstrap variables
-$custom-range-track-bg: #fff;
+$form-range-track-bg: #fff;
 $btn-focus-box-shadow: none !important;
-$custom-range-thumb-focus-box-shadow: none !important;
+$form-range-thumb-focus-box-shadow: none !important;
+$dark: #343a40;
 
-// REQUIRED
+// Configuration
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
 
 // Mixin override for fixing sticky iOS :hover
 @mixin hover() {
@@ -15,12 +17,12 @@ $custom-range-thumb-focus-box-shadow: none !important;
   }
 }
 
-// OPTIONAL
-// @import "~bootstrap/scss/root";
+// Layout & components
+@import "~bootstrap/scss/root";
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/type";
 // @import "~bootstrap/scss/images";
-// @import "~bootstrap/scss/code";
+@import "~bootstrap/scss/containers";
 @import "~bootstrap/scss/grid";
 // @import "~bootstrap/scss/tables";
 @import "~bootstrap/scss/forms";
@@ -28,18 +30,15 @@ $custom-range-thumb-focus-box-shadow: none !important;
 @import "~bootstrap/scss/transitions";
 // @import "~bootstrap/scss/dropdown";
 @import "~bootstrap/scss/button-group";
-@import "~bootstrap/scss/input-group";
-@import "~bootstrap/scss/custom-forms";
 // @import "~bootstrap/scss/nav";
 @import "~bootstrap/scss/navbar";
 // @import "~bootstrap/scss/card";
+// @import "~bootstrap/scss/accordion";
 // @import "~bootstrap/scss/breadcrumb";
 // @import "~bootstrap/scss/pagination";
 // @import "~bootstrap/scss/badge";
-// @import "~bootstrap/scss/jumbotron";
 // @import "~bootstrap/scss/alert";
 // @import "~bootstrap/scss/progress";
-// @import "~bootstrap/scss/media";
 // @import "~bootstrap/scss/list-group";
 // @import "~bootstrap/scss/close";
 // @import "~bootstrap/scss/toasts";
@@ -48,8 +47,14 @@ $custom-range-thumb-focus-box-shadow: none !important;
 // @import "~bootstrap/scss/popover";
 // @import "~bootstrap/scss/carousel";
 // @import "~bootstrap/scss/spinners";
-@import "~bootstrap/scss/utilities";
-// @import "~bootstrap/scss/print";
+// @import "~bootstrap/scss/offcanvas";
+// @import "~bootstrap/scss/placeholders";
+
+// Helpers
+@import "~bootstrap/scss/helpers";
+
+// Utilities
+@import "~bootstrap/scss/utilities/api";
 
 // Custom donate button colours
 $donation-orange: #f4b04e;
@@ -59,7 +64,7 @@ $donation-orange: #f4b04e;
 }
 
 // Increase hitbox size for slider thumb by 4x
-.custom-range {
+.form-range {
   &::-webkit-slider-thumb {
     background-clip: padding-box;
     border: 0.4rem solid transparent;
