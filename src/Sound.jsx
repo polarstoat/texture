@@ -56,7 +56,6 @@ class Sound extends Component {
           value={sound.volume}
           audioLoaded={loaded}
         />
-        {process.env.NODE_ENV !== 'production' && process.env.REACT_APP_FILENAMES === 'true' && <small className="filename text-white bg-dark text-monospace">{sound.filename}</small>}
       </Form.Group>
     );
   }
