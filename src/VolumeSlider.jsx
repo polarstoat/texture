@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import FormRange from 'react-bootstrap/FormRange';
+import Form from 'react-bootstrap/Form';
 
 class Slider extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class Slider extends Component {
   render() {
     const { value, audioLoaded } = this.props;
     return (
-      <FormRange value={value} onChange={this.handleChange} disabled={!audioLoaded} min={0} max={1} step="any" />
+      <Form.Range value={value} onChange={this.handleChange} disabled={!audioLoaded} min={0} max={1} step="any" />
     );
   }
 }
