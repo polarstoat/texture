@@ -17,7 +17,7 @@ class BodyText extends PureComponent {
             <p>There are <strong>over 3 trillion</strong> unique combinations of audio loops in Texture; this means you probably have a combination that has never been heard by anyone before and probably will never be heard again — unless of course you share it.</p>
             <h6>Like Texture? Buy us an apple</h6>
             <a className="btn btn-donate mb-3" role="button" href="https://paypal.me/graemejwalker" target="_blank" rel="noreferrer noopener">Donate via PayPal</a>
-            <p>We&apos;re happy to recieve feedback, comments and questions at <a href="mailto:hi@addtexture.com">hi@addtexture.com</a>. You can also reach us on Twitter <a href="https://twitter.com/add_texture">@add_texture</a>, and share your Texture URLs and descriptions with <a href="https://twitter.com/search?q=%23addtexture">#addtexture</a>.</p>
+            <p>We&apos;re happy to recieve feedback, comments and questions at <a href="mailto:hi@addtexture.com">hi@addtexture.com</a>.</p>
           </Col>
           <Col md={6}>
             <p>Whenever the sounds you’re working with need a bit of roughing up, or needs a refresh or a different perspective, give Texture a try.</p>
