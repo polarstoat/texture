@@ -10,7 +10,7 @@ class Footer extends PureComponent {
       <Navbar>
         <Container fluid>
           <Navbar.Text>
-            <small>Add Texture &copy; Spike Padley and Graeme Walker 2020</small>
+            <small>Add Texture &copy; Spike Padley and <a href="https://graemewalker.art">Graeme Walker</a> 2020</small>
           </Navbar.Text>
           <Navbar.Text className="ml-auto"><small>Texture uses cookies to save your current mix in between sessions and measure traffic. <a href="https://www.cookiesandyou.com/" target="_blank" rel="noreferrer noopener">Learn more about cookies</a>.</small></Navbar.Text>
         </Container>
