@@ -7,10 +7,10 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import './ShareURL.css';
 
 class ShareURL extends PureComponent {
-  handleClick = (event) => {
+  static handleClick = (event) => {
     event.target.focus();
     event.target.select();
-  }
+  };
 
   render() {
     const { shareableUrl } = this.props;
